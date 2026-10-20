@@ -18,25 +18,11 @@ dementia/
 └── requirements.txt
 ```
 
-## Data
-
-The local cohort is OpenNeuro **ds004504** (19-channel, 500 Hz, eyes-closed resting state), exported
-as one CSV per subject (`sub-XXX_*.csv`, one column per channel plus an optional `time` column).
-
-| Subjects | Group | Use |
-|---|---|---|
-| 1–36  | AD  | LOSO evaluation (label 1, **positive class**) |
-| 37–65 | CN  | LOSO evaluation (label 0) |
-| 66–88 | FTD | Self-supervised pre-training only; labels never used |
-
-Recordings are split into non-overlapping 30 s segments (15,000 samples).
-
 ## Usage
 
 ```bash
 pip install -r requirements.txt
 
-# Default: pre-train on subjects 66-88, LOSO on 1-65, both protocols, 5 seeds
 python main.py --root-dir /path/to/csv
 ```
 
